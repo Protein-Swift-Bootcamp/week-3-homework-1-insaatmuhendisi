@@ -10,10 +10,20 @@ import UIKit
 //MARK: - DELEGATE
 class FirstViewController: UIViewController {
 
+    @IBOutlet weak var dataLabel: UILabel!
+    @IBOutlet weak var transferLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        dataLabel.text = ""
+        transferLabel.text = ""
     }
+
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        
+        self.performSegue(withIdentifier: "goToSecond", sender: self)
+    }
+    
 
 }
 

@@ -14,6 +14,9 @@ protocol canTransfer {
 //MARK: - DELEGATOR
 class SecondViewController: UIViewController {
     
+    
+    @IBOutlet weak var textField: UITextField!
+    
     var delegate: canTransfer?
     
     override func viewDidLoad() {
@@ -24,5 +27,27 @@ class SecondViewController: UIViewController {
     func toDelegation() {
         delegate?.transfer(data: "hi")
     }
+    
+    @IBAction func protocolButtonPressed(_ sender: UIButton) {
+        
+        
+        //go back to the 1st screen
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func NCButtonPressed(_ sender: UIButton) {
+        
+        
+        //go back to the 1st screen
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func closureButtonPressed(_ sender: UIButton) {
+        
+        
+        //go back to the 1st screen
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 
+//MARK: - DELEGATE
 class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -14,6 +15,12 @@ class FirstViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
 }
 
+//MARK: - DELEGATE EXTENSION
+extension FirstViewController: canTransfer {
+    
+    func transfer(data: String) {
+        print(data)
+    }
+}

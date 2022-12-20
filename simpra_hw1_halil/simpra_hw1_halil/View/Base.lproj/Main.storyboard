@@ -43,7 +43,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3xi-AX-A7I" userLabel="Text View">
                                         <rect key="frame" x="0.0" y="203" width="374" height="250"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhm-sr-e8G" userLabel="Data Label">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhm-sr-e8G" userLabel="Data Label">
                                                 <rect key="frame" x="8" y="0.0" width="358" height="180"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="180" id="Xk7-kz-IwK"/>
@@ -52,12 +52,12 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pu0-23-VEQ" userLabel="Transfer Label">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pu0-23-VEQ" userLabel="Transfer Label">
                                                 <rect key="frame" x="8" y="180" width="358" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="gwr-V1-L8n"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Verdana-Italic" family="Verdana" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="Verdana-Italic" family="Verdana" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -83,7 +83,7 @@
                                                     <constraint firstAttribute="height" constant="55" id="i5V-X8-bH8"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="22"/>
-                                                <state key="normal" title="Button">
+                                                <state key="normal" title="Get Data">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -118,12 +118,12 @@
                     <connections>
                         <outlet property="dataLabel" destination="dhm-sr-e8G" id="hgU-JL-11R"/>
                         <outlet property="transferLabel" destination="Pu0-23-VEQ" id="SRa-BW-goN"/>
-                        <segue destination="Bem-AF-qUa" kind="presentation" identifier="goToSecond" id="EhN-ei-LMg"/>
+                        <segue destination="Bem-AF-qUa" kind="presentation" identifier="goToSecond" id="61k-hz-nat"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140.57971014492756" y="62.946428571428569"/>
+            <point key="canvasLocation" x="155" y="63"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="sR3-VW-hlY">
@@ -184,7 +184,7 @@
                                                     <constraint firstAttribute="height" constant="55" id="5sW-Sv-0KX"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="22"/>
-                                                <state key="normal" title="Button">
+                                                <state key="normal" title="Protocol">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -198,7 +198,7 @@
                                                     <constraint firstAttribute="height" constant="55" id="IgQ-QO-zq7"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="22"/>
-                                                <state key="normal" title="Button">
+                                                <state key="normal" title="Notification Center">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -212,7 +212,7 @@
                                                     <constraint firstAttribute="height" constant="55" id="alu-P5-efv"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="22"/>
-                                                <state key="normal" title="Button">
+                                                <state key="normal" title="Closure">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>

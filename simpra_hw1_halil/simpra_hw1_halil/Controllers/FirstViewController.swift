@@ -38,15 +38,20 @@ class FirstViewController: UIViewController {
 extension FirstViewController: canTransfer {
 
     // protocol function
-    func didTransfer(_ data: String) {
-        print(data)
+    func didTransfer(this data: String) {
         dataLabel.text = data
+        print("Veri geldi")
     }
     
     // notification center observer (handles the incoming notification)
     @objc func didNotificationArrive(notification: NSNotification) {
-        if let data = notification.userInfo?["entry"] as? String {
-            dataLabel.text = data
+        let optionalEntry: String? = notification.userInfo!["entry"] as? String
+        
+        if optionalEntry == "" {
+            dataLabel.text = "-- No Data --"
+            transferLabel.text = "you leave text field empty"
+        } else {
+            dataLabel.text = optionalEntry
             transferLabel.text = "transfered by notification center"
         }
     }

@@ -8,7 +8,7 @@ import UIKit
 
 //MARK: - PROTOCOL
 protocol canTransfer {
-    func didTransfer(_ data: String)
+    func didTransfer(this data: String)
 }
 
 //MARK: - DELEGATOR
@@ -16,13 +16,12 @@ class SecondViewController: UIViewController {
     
     @IBOutlet weak var textField: UITextField!
     
-    let data = "hi"
-    var delegate: canTransfer?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
+    
+    var delegate: canTransfer?
     
     // this function reads the data written and checks if it is nil
     func gatherData() -> String {
@@ -34,11 +33,11 @@ class SecondViewController: UIViewController {
     
     // triggers when protocol button pressed
     @IBAction func protocolButtonPressed(_ sender: UIButton) {
-        delegate?.didTransfer(data)
-  
+        delegate?.didTransfer(this: gatherData())
+        print("Veri yola cikti: \(gatherData())")
+        
         self.dismiss(animated: true, completion: nil)
     }
-    
     
     // triggers when NC button pressed
     @IBAction func NCButtonPressed(_ sender: UIButton) {

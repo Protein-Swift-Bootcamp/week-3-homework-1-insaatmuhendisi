@@ -118,7 +118,6 @@
                     <connections>
                         <outlet property="dataLabel" destination="dhm-sr-e8G" id="hgU-JL-11R"/>
                         <outlet property="transferLabel" destination="Pu0-23-VEQ" id="SRa-BW-goN"/>
-                        <segue destination="Bem-AF-qUa" kind="presentation" identifier="goToSecond" id="61k-hz-nat"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -128,16 +127,16 @@
         <!--Second View Controller-->
         <scene sceneID="sR3-VW-hlY">
             <objects>
-                <viewController id="Bem-AF-qUa" customClass="SecondViewController" customModule="simpra_hw1_halil" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="secondStoryboard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Bem-AF-qUa" customClass="SecondViewController" customModule="simpra_hw1_halil" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zsJ-if-xjh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DEd-5T-LwN">
-                                <rect key="frame" x="0.0" y="0.0" width="422" height="842"/>
+                                <rect key="frame" x="0.0" y="0.0" width="422" height="896"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="Nyk-eJ-mEV">
-                                <rect key="frame" x="20" y="0.0" width="374" height="773"/>
+                                <rect key="frame" x="20" y="44" width="374" height="783"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hP8-wk-gyV" userLabel="Title View">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="150.5"/>
@@ -175,7 +174,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dEv-uN-rxI" userLabel="Button View">
-                                        <rect key="frame" x="0.0" y="520.5" width="374" height="252.5"/>
+                                        <rect key="frame" x="0.0" y="520.5" width="374" height="262.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPC-XT-dLc" userLabel="Protocol Button">
                                                 <rect key="frame" x="0.0" y="25" width="374" height="55"/>

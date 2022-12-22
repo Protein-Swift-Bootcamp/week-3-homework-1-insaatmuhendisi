@@ -4,56 +4,59 @@
 //
 //  Created by Halil Ibrahim Andic on 19.12.2022.
 //
-
 import UIKit
 
 //MARK: - DELEGATE
 class FirstViewController: UIViewController {
-
     
+    // outlet connections to Label fields
     @IBOutlet weak var dataLabel: UILabel!
     @IBOutlet weak var transferLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dataLabel.text = """
+            Simpra iOS Bootcamp
+            Homework 1
+            Halil Ibrahim Andic
+            """
+    }
+    
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        // create a connection between my second storyboard and second VC
+        if let secondVC = storyboard?.instantiateViewController(withIdentifier: "secondStoryboard") as? SecondViewController {
+            // assign FirstViewController as a delegate
+            secondVC.delegate = self
+            
+            // shows second storyboard
+            present(secondVC, animated: true, completion: nil)
+        }
         
-        // create an instance of 2nd VC
-        let secondVC = SecondViewController()
-        
-        // tells 2nd VC that i am the current delegate
-        secondVC.delegate = self
-        
+        // -- NOTIFICATION CENTER --
         // register to receive notification
         NotificationCenter.default.addObserver(self, selector: #selector(didNotificationArrive(notification:)), name: NSNotification.Name(rawValue: "notificationName"), object: nil)
-    }
-
-    @IBAction func buttonPressed(_ sender: UIButton) {
-        
-        //present(secondVC, animated: true, completion: nil)
-        self.performSegue(withIdentifier: "goToSecond", sender: self)
     }
 }
 
 //MARK: - DELEGATE EXTENSION
 extension FirstViewController: canTransfer {
-
-    // protocol function
-    func didTransfer(this data: String) {
+    
+    // -- PROTOCOL --
+    func didTransfer(_ data: String) {
         dataLabel.text = data
-        print("Veri geldi")
+        transferLabel.text = "transferred by protocol"
     }
-    
-    // notification center observer (handles the incoming notification)
+
+    // -- NOTIFICATION CENTER --
+    // NC observer (handles the incoming notification)
     @objc func didNotificationArrive(notification: NSNotification) {
-        let optionalEntry: String? = notification.userInfo!["entry"] as? String
-        
-        if optionalEntry == "" {
-            dataLabel.text = "-- No Data --"
-            transferLabel.text = "you leave text field empty"
-        } else {
-            dataLabel.text = optionalEntry
-            transferLabel.text = "transfered by notification center"
-        }
+        dataLabel.text = notification.userInfo!["entry"] as? String
+        transferLabel.text = "transferred by notification center"
     }
     
+    // -- CLOSURE --
+    func didClosureArrive(text: String) {
+        dataLabel.text = text
+        transferLabel.text = "transferred by closure"
+    }
 }

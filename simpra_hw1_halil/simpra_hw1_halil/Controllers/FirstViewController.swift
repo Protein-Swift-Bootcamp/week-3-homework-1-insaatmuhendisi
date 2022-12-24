@@ -26,6 +26,7 @@ class FirstViewController: UIViewController {
             secondVC.delegate = self
             
             // shows second storyboard
+            secondVC.modalPresentationStyle = .fullScreen
             present(secondVC, animated: true, completion: nil)
         }
         

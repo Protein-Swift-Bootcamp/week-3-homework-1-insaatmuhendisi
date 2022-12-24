@@ -9,17 +9,14 @@ import UIKit
 //MARK: - DELEGATE
 class FirstViewController: UIViewController {
     
-    // outlet connections to Label fields
-    @IBOutlet weak var dataLabel: UILabel!
+    // outlet connections of label fields
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var surnameLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var transferLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataLabel.text = """
-            Simpra iOS Bootcamp
-            Homework 1
-            Halil Ibrahim Andic
-            """
     }
     
     @IBAction func buttonPressed(_ sender: UIButton) {
@@ -42,21 +39,30 @@ class FirstViewController: UIViewController {
 extension FirstViewController: canTransfer {
     
     // -- PROTOCOL --
-    func didTransfer(_ data: String) {
-        dataLabel.text = data
+    func didTransfer(_ data: [String:String]) {
+        showResult(data)
         transferLabel.text = "transferred by protocol"
     }
 
     // -- NOTIFICATION CENTER --
     // NC observer (handles the incoming notification)
     @objc func didNotificationArrive(notification: NSNotification) {
-        dataLabel.text = notification.userInfo!["entry"] as? String
+        
+        let data: [String:String] = notification.userInfo! as? [String:String] ?? ["":""]
+        showResult(data)
         transferLabel.text = "transferred by notification center"
     }
-    
+
     // -- CLOSURE --
-    func didClosureArrive(text: String) {
-        dataLabel.text = text
+    func didClosureArrive(data: [String:String]) {
+        showResult(data)
         transferLabel.text = "transferred by closure"
+    }
+    
+    // this function changes the text of related labels
+    func showResult(_ data: [String:String]) {
+        nameLabel.text = data["name"]
+        surnameLabel.text = data["surname"]
+        ageLabel.text = data["age"]
     }
 }

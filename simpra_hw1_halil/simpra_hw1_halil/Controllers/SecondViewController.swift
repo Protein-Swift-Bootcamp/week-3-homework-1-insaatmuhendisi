@@ -8,13 +8,15 @@ import UIKit
 
 //MARK: - PROTOCOL
 protocol canTransfer {
-    func didTransfer(_ data: String)
+    func didTransfer(_ data: [String:String])
 }
 
 //MARK: - DELEGATOR
 class SecondViewController: UIViewController {
     
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var surnameField: UITextField!
+    @IBOutlet weak var ageField: UITextField!
     
     // Protocol variable
     var delegate: canTransfer?
@@ -23,35 +25,36 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    // this function reads the data written and checks if it is nil
-    func gatherData() -> String {
-        guard let entry = textField.text else {
-            return "Nothing written"
-        }
-        return entry
+    /* this function obtains the data filled in the form
+     and returns it as a dictionary. */
+    func gatherData() -> [String: String] {
+        var formDictionary: [String: String] = [:]
+        
+        formDictionary["name"] = nameField.text ?? ""
+        formDictionary["surname"] = surnameField.text ?? ""
+        formDictionary["age"] = ageField.text ?? ""
+        
+        return formDictionary
     }
     
     @IBAction func protocolButtonPressed(_ sender: UIButton) {
-        // sends the gathered data to the protocol function of the delegate (first VC)
+        // sends the gathered data to the delegate function of first VC
         delegate?.didTransfer(gatherData())
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func NCButtonPressed(_ sender: UIButton) {
-        // create data dictionary
-        let dataDict = ["entry" : gatherData()]
-        
         // post a notification
-        NotificationCenter.default.post(name: NSNotification.Name("notificationName"), object: nil, userInfo: dataDict)
+        NotificationCenter.default.post(name: NSNotification.Name("notificationName"), object: nil, userInfo: gatherData())
         dismiss(animated: true, completion: nil)
     }
-    
+
     @IBAction func closureButtonPressed(_ sender: UIButton) {
         // create an instance of FirstViewController
         if let firstVC = presentingViewController as? FirstViewController {
             //sends the data in completion closure
             dismiss(animated: true, completion: {
-                firstVC.didClosureArrive(text: self.gatherData())
+                firstVC.didClosureArrive(data: self.gatherData())
             })
         }
     }
